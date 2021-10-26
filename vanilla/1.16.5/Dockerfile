@@ -13,9 +13,7 @@ VOLUME ["/data"]
 EXPOSE 25565/tcp
 EXPOSE 25565/udp
 RUN wget 'https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar'
-RUN touch /data/eula.txt
-RUN echo eula=true > /data/eula.txt
 RUN echo "sed -i 's/enable-rcon=false/enable-rcon=true/g' server.properties && sed -i 's/server-ip=/server-ip=0.0.0.0/g' server.properties && sed -i 's/rcon.password=/rcon.password=mc/g'  server.properties" > activateconsole.sh 
-CMD cp ../activateconsole.sh /data && echo eula=true > eula.txt && java -jar ../*.jar
+CMD echo eula=true > /data/eula.txt && cp ../activateconsole.sh /data && echo eula=true > eula.txt && java -jar ../*.jar
 WORKDIR /data
 #docker exec -i mcserver rcon-cli --host localhost --port 25575 --password glaspalast timings report
