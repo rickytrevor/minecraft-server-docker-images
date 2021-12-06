@@ -1,6 +1,6 @@
-FROM fedora:latest
+FROM redhat/ubi8:latest
 #RUN yum install -y java-1.8.0-openjdk.x86_64
-RUN yum install -y java-latest-openjdk 
+RUN yum install -y java-17-openjdk.x86_64
 RUN yum install -y wget
 RUN yum install -y shadow-utils
 RUN yum install -y tar

@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM redhat/ubi8:latest
 RUN yum install -y wget
 RUN yum install -y unzip 
 RUN yum install -y libnsl

@@ -1,6 +1,6 @@
 FROM redhat/ubi8:latest
-#RUN yum install -y java-1.8.0-openjdk.x86_64
 RUN yum install -y java-17-openjdk.x86_64
+#RUN yum install -y java-latest-openjdk 
 RUN yum install -y wget
 RUN yum install -y shadow-utils
 RUN yum install -y tar
@@ -12,9 +12,9 @@ RUN tar -x -C /usr/local/bin -f /tmp/rcon-cli.tgz rcon-cli && \
 VOLUME ["/data"]
 EXPOSE 25565/tcp
 EXPOSE 25565/udp
-RUN wget 'https://launcher.mojang.com/v1/objects/3cf24a8694aca6267883b17d934efacc5e44440d/server.jar'
-
 RUN echo "sed -i 's/enable-rcon=false/enable-rcon=true/g' server.properties && sed -i 's/server-ip=/server-ip=0.0.0.0/g' server.properties && sed -i 's/rcon.password=/rcon.password=mc/g'  server.properties" > activateconsole.sh 
-CMD echo eula=true > /data/eula.txt && cp ../activateconsole.sh /data && echo eula=true > eula.txt && java -jar ../*.jar
+RUN wget 'https://maven.minecraftforge.net/net/minecraftforge/forge/1.18-38.0.15/forge-1.18-38.0.15-installer.jar'
+RUN java -jar forge*.jar --installServer
+CMD echo eula=true > /data/eula.txt && cp ../activateconsole.sh /data && echo eula=true > eula.txt && java -jar ../forge*.jar nogui
+#CMD bash
 WORKDIR /data
-#docker exec -i mcserver rcon-cli --host localhost --port 25575 --password glaspalast timings report
