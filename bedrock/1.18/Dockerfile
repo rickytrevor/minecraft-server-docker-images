@@ -1,4 +1,5 @@
 FROM fedora:latest
+RUN yum -y update
 RUN yum install -y wget
 RUN yum install -y unzip 
 RUN yum install -y libnsl
