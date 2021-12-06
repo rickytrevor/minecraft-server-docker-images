@@ -1,8 +1,7 @@
-FROM fedora:latest
-RUN yum -y update
-RUN yum install -y wget
-RUN yum install -y unzip 
-RUN yum install -y libnsl
+FROM ubuntu 
+RUN apt -y update
+RUN apt -y install wget
+RUN apt -y install unzip 
 VOLUME ["/data"]
 RUN wget 'https://minecraft.azureedge.net/bin-linux/bedrock-server-1.18.1.02.zip'
 RUN unzip bedrock*
