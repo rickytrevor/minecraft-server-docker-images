@@ -4,6 +4,7 @@ open an issue on github and i'll fix it as soon as possible
 
 #### Supported editions:
 Bedrock, Vanilla, Spigot, Forge (if you plan to run the Bedrock version remember to use /udp after the port -p 19132:19132/udp) 
+https://hub.docker.com/repository/docker/rickytrevor/minecraft-server
 
 ##### Usage:
 
