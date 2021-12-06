@@ -14,6 +14,6 @@ EXPOSE 25565/tcp
 EXPOSE 25565/udp
 RUN touch /data/eula.txt
 RUN echo "sed -i 's/enable-rcon=false/enable-rcon=true/g' server.properties && sed -i 's/server-ip=/server-ip=0.0.0.0/g' server.properties && sed -i 's/rcon.password=/rcon.password=mc/g'  server.properties" > activateconsole.sh 
-RUN wget 'https://download.getbukkit.org/spigot/spigot-1.17.1.jar'
+RUN wget 'https://download.getbukkit.org/spigot/spigot-1.18.jar'
 CMD echo eula=true > /data/eula.txt && cp ../activateconsole.sh /data && echo eula=true > eula.txt && java -jar ../spigot*.jar
 WORKDIR /data

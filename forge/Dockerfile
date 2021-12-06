@@ -13,7 +13,7 @@ VOLUME ["/data"]
 EXPOSE 25565/tcp
 EXPOSE 25565/udp
 RUN echo "sed -i 's/enable-rcon=false/enable-rcon=true/g' server.properties && sed -i 's/server-ip=/server-ip=0.0.0.0/g' server.properties && sed -i 's/rcon.password=/rcon.password=mc/g'  server.properties" > activateconsole.sh 
-RUN wget 'https://maven.minecraftforge.net/net/minecraftforge/forge/1.17.1-37.0.53/forge-1.17.1-37.0.53-installer.jar'
+RUN wget 'https://maven.minecraftforge.net/net/minecraftforge/forge/1.18-38.0.15/forge-1.18-38.0.15-installer.jar'
 RUN java -jar forge*.jar --installServer
 CMD echo eula=true > /data/eula.txt && cp ../activateconsole.sh /data && echo eula=true > eula.txt && java -jar ../forge*.jar nogui
 #CMD bash
