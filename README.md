@@ -17,7 +17,7 @@ if you want to run a specific minecraft version add after the : the version numb
 #### example:
 
 ```
-docker run --rm --name mcserver -v /the/directory/that/you/want:/data  -p 25565:25565  -t -d rickytrevor/vminecraft-server:1.16.5
+docker run --rm --name mcserver -v /the/directory/that/you/want:/data  -p 25565:25565  -t -d rickytrevor/minecraft-server:1.16.5
 ```
 
 #### console:
