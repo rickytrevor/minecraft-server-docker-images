@@ -15,7 +15,7 @@ RUN apk update
 RUN apk add openjdk17  
 #RUN apk add bash
 RUN echo "sed -i 's/enable-rcon=false/enable-rcon=true/g' server.properties && sed -i 's/server-ip=/server-ip=0.0.0.0/g' server.properties && sed -i 's/rcon.password=/rcon.password=mc/g'  server.properties" > activateconsole.sh 
-RUN printf "if [ ! -f server.jar ]; then echo 'server.jar not found, downloading...'\n apk update && apk add wget && wget https://api.papermc.io/v2/projects/paper/versions/1.19/builds/70/downloads/paper-1.19-70.jar -O server.jar \nfi\n echo 'eula=true' > eula.txt\n cp ../activateconsole.sh . \njava -jar paper-1.19-70.jar " > download.sh
+RUN printf "if [ ! -f server.jar ]; then echo 'server.jar not found, downloading...'\n apk update && apk add wget && wget https://api.papermc.io/v2/projects/paper/versions/1.19/builds/70/downloads/paper-1.19-70.jar -O server.jar \nfi\n echo 'eula=true' > eula.txt\n cp ../activateconsole.sh . \njava -jar server.jar " > download.sh
 RUN chmod +x download.sh
 CMD cp ../download.sh . &&  sh download.sh
 WORKDIR /data
