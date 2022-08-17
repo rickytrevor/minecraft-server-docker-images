@@ -15,7 +15,7 @@ RUN apk update
 RUN apk add openjdk17  
 #RUN apk add bash
 RUN echo "sed -i 's/enable-rcon=false/enable-rcon=true/g' server.properties && sed -i 's/server-ip=/server-ip=0.0.0.0/g' server.properties && sed -i 's/rcon.password=/rcon.password=mc/g'  server.properties" > activateconsole.sh 
-RUN printf "if [ ! -f server.jar ]; then echo 'server.jar not found, downloading...'\n apk update && apk add wget && wget https://piston-data.mojang.com/v1/objects/f69c284232d7c7580bd89a5a4931c3581eae1378/server.jar -O server.jar \nfi\n echo 'eula=true' > eula.txt\n cp ../activateconsole.sh . \njava -jar server.jar " > download.sh
+RUN printf "if [ ! -f server.jar ]; then echo 'server.jar not found, downloading...'\n apk update && apk add wget && wget https://piston-data.mojang.com/v1/objects/8399e1211e95faa421c1507b322dbeae86d604df/server.jar -O server.jar \nfi\n echo 'eula=true' > eula.txt\n cp ../activateconsole.sh . \njava -jar server.jar " > download.sh
 RUN chmod +x download.sh
 CMD cp ../download.sh . &&  sh download.sh
 WORKDIR /data
